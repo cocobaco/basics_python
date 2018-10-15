@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Apr  2 20:16:44 2018
+
+@author: rop
+"""
+import memory_profiler
+import time
+import random
+import pandas as pd
+
+n_samples = 10000
+
+print('n_samples = {}'.format(n_samples))
+
+nums = [i for i in range(1,n_samples+1)]
+randoms = random.sample(range(1,10*n_samples+1), n_samples)
+
+#print(nums)
+#print(randoms)
+
+tic = time.clock()
+my_nums = [i*i for i in nums]
+my_rand_sq = [i*i for i in randoms]
+toc = time.clock()
+print('time (list): {}'.format(toc-tic))
+
+#def gen_sq(nums):
+#    for i in nums:
+#        yield (i*i)
+
+tic = time.clock()
+my_nums = (i*i for i in nums)
+my_rand_sq = (i*i for i in randoms)
+toc = time.clock()
+print('time (generator): {}'.format(toc-tic))
+
+print('*'*50)
+
+df = pd.read_csv('../data/nba_data/nba_players_teams_random.csv')
+
+players = list(df['Players'])
+teams = list(df['Teams'][pd.notnull(df['Teams'])])
+
+def player_list(num_players):
+    result = []
+    for i in range(num_players):
+        player = {
+                    'id': i,
+                    'name': random.choice(players),
+                    'team': random.choice(teams)
+                }
+        result.append(player)
+    return result
+
+def player_generator(num_players):
+    for i in range(num_players):
+        player = {
+                    'id': i,
+                    'name': random.choice(players),
+                    'team': random.choice(teams)
+                }
+        yield player
+
+print('list:')
+print('memory (before): {}Mb'.format(memory_profiler.memory_usage()))
+tic = time.clock()
+list_player = player_list(n_samples)
+toc = time.clock()
+print('time: {}'.format(toc-tic))
+print('memory (after): {}Mb'.format(memory_profiler.memory_usage()))
+
+print('generator:')
+print('memory (before): {}Mb'.format(memory_profiler.memory_usage()))
+tic = time.clock()
+gen_player = player_generator(n_samples)
+toc = time.clock()
+print('time: {}'.format(toc-tic))
+print('memory (after): {}Mb'.format(memory_profiler.memory_usage()))
+
+print(list_player[:5])
+
+

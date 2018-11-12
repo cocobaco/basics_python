@@ -52,3 +52,10 @@ print('{:10s} {}'.format('pretzels', count_item(allGuests,'pretzels')))
 print('{:10s} {}'.format('cups', count_item(allGuests,'cups')))
 print('{:10s} {}'.format('sandwiches', count_item(allGuests,'sandwiches')))
 
+
+# merge dicts
+x = {'a': 5, 'b': 3}
+y = {'a': 4, 'b': 2, 'c': 7}
+
+z = {**x, **y}  # match key, overwriting duplicates
+print(z)

@@ -23,6 +23,26 @@ ax.set_ylabel('area')
 plt.show()
 
 
+def deltafun(x):
+    if x==0:
+        return 1
+    else:
+        return 0
+
+for k in range(-3, 3):
+    print(k, " ", deltafun(k))
+    
+x = np.arange(-10, 10)
+y = np.array(list(map(deltafun, x)))
+
+fig, ax = plt.subplots()
+ax.plot(x, y, lw=3)
+ax.set_xlabel('x')
+ax.set_ylabel('area')
+ax.set_title('delta function')
+plt.show()
+
+
 # 2. use map: map(func, data)
 c_to_f = lambda c: (9/5) * c + 32
 temp = np.linspace(-10, 120, num=50)

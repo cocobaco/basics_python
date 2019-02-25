@@ -33,23 +33,23 @@ fname = 'data/testtext.txt'
 greets = ['Hi', 'Hola', 'Hello', 'Tchao', 'Ola', 'Obrigado', 'Ciao']
 
 # open file for reading
-with open(fname, 'r') as textfile:
-    for i, line in enumerate(textfile):
+with open(fname, 'r') as file:
+    for i, line in enumerate(file):
         last_line = line
         pass
     print('there are {} lines in the file'.format(i + 1))
 print('last line:', last_line)
 
 
-# open file for reading and writing
-with open(fname, 'a+') as textfile:
+# open file for reading and writing (a = append)
+with open(fname, 'a+') as file:
     greet = random.choice(greets)
     print(greet)
-    textfile.write('\n' + random.choice(greets))
+    file.write('\n' + random.choice(greets))
 
 # check if file is closed
-if not textfile.closed:
-    textfile.close()
+if not file.closed:
+    file.close()
 
 t2 = time.time()
 print('time elapsed: {}'.format(t2 - t1))

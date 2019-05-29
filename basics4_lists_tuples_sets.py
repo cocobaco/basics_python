@@ -22,7 +22,7 @@ for index,item in enumerate(numbers):
     
 print(Counter(list1))
 
-print('*'*50)
+print('*' * 50)
 
 first = [11.25, 18.0, 20.0]
 second = [10.75, 9.50]
@@ -62,15 +62,15 @@ print(person_up)
 person_low = [x.lower() for x in person]
 print(person_low)
 
-print('*'*50)
+print('*' * 50)
 
 list_a = [1.74, 1.68, 1.55, 1.82, 1.94]
 list_b = [64.2, 62.5, 55.4, 102.3, 145.7]
 zipped = zip(list_a,list_b)
 
 print('zip lists:')
-for x,y in zipped:
-    print(x,y)
+for x, y in zipped:
+    print(x, y)
     
 list_a.append(1.55)
 list_a.append(1.68)
@@ -145,14 +145,15 @@ def square(x):
 value = map(square, list1)
 print(list(value))
 
+print('*' * 50)
+print('Tuples:')
 print('tuples are similar to lists but their elements cannot be changed')
 
-print('---- tuple ------')
 tup = (1, 4, 'hello', 5.24)
 print('tuple:')
-for i,v in enumerate(tup):
-    print(i,v)
-print('len(tup): ', len(tup))
+for i, v in enumerate(tup):
+    print(i, v)
+print('len(tup):', len(tup))
 
 tup1 = ('physics', 'chemistry', 1997, 2000)
 tup2 = (1, 2, 3, 4, 5, 6, 7 )
@@ -167,6 +168,16 @@ tup4 = (15,252,6363,242,236)
 print('tup4:', tup4)
 del tup4
 
+from collections import namedtuple
+print('namedtuple:')
+Point = namedtuple('Point', ['x', 'y'])
+p = Point(4, 7)
+print(p.x)
+print(p.y)
+print(p)
+
+print('*' * 50)
+print('Sets:')
 print('sets are used to build sequence of unique items')
 a = set([1, 2, 3, 4])
 b = set([3, 4, 5, 6])

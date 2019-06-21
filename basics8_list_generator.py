@@ -20,24 +20,24 @@ randoms = random.sample(range(1,10*n_samples+1), n_samples)
 #print(nums)
 #print(randoms)
 
-tic = time.clock()
+tic = time.process_time()
 my_nums = [i*i for i in nums]
 my_rand_sq = [i*i for i in randoms]
-toc = time.clock()
+toc = time.process_time()
 print('time (list): {}'.format(toc-tic))
 
 #def gen_sq(nums):
 #    for i in nums:
 #        yield (i*i)
 
-tic = time.clock()
+tic = time.process_time()
 my_nums = (i*i for i in nums)
 my_rand_sq = (i*i for i in randoms)
-toc = time.clock()
+toc = time.process_time()
 print('time (generator): {}'.format(toc-tic))
 
-print('*'*50)
 
+print('*'*50)
 df = pd.read_csv('../data/nba_data/nba_players_teams_random.csv')
 
 players = list(df['Players'])
@@ -65,17 +65,17 @@ def player_generator(num_players):
 
 print('list:')
 print('memory (before): {}Mb'.format(memory_profiler.memory_usage()))
-tic = time.clock()
+tic = time.process_time()
 list_player = player_list(n_samples)
-toc = time.clock()
+toc = time.process_time()
 print('time: {}'.format(toc-tic))
 print('memory (after): {}Mb'.format(memory_profiler.memory_usage()))
 
 print('generator:')
 print('memory (before): {}Mb'.format(memory_profiler.memory_usage()))
-tic = time.clock()
+tic = time.process_time()
 gen_player = player_generator(n_samples)
-toc = time.clock()
+toc = time.process_time()
 print('time: {}'.format(toc-tic))
 print('memory (after): {}Mb'.format(memory_profiler.memory_usage()))
 

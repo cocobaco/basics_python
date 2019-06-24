@@ -5,11 +5,11 @@ Created on Fri Mar 15 11:27:40 2019
 @author: Admin
 """
 
-from datetime import datetime as dt
+import datetime
 
-now = dt.now()
+now = datetime.datetime.now()
 
-print("Current date and time: " , now)
+print("Current date and time:" , now)
 
 print(now.strftime("%y-%m-%d-%H-%M"))
 
@@ -17,5 +17,12 @@ print(now.year)
 print(now.strftime("%A"))
 print(now.strftime("%B"))
 
-day1 = dt(2019, 3, 15)
+# time difference
+day1 = datetime.datetime(2011, 6, 16)
 print(day1)
+
+print('time from', day1, 'to now:')
+diff = now - day1
+print(diff)
+print(diff.days)
+print('years =', diff.days / 365.)

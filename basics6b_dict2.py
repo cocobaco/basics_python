@@ -5,6 +5,9 @@ Created on Tue Apr 30 13:17:26 2019
 @author: Admin
 """
 
+import random
+
+
 spanish_conjunc = {'que': 'that, who, which, than',
                 'y':  'and',
                 'o': 'or',
@@ -24,3 +27,9 @@ spanish_conjunc = {'que': 'that, who, which, than',
 
 for k, v in spanish_conjunc.items():
     print('{:<12s} {}'.format(k, v))
+    
+    
+print('*' * 30)
+print('Word of the day:')
+espanola = random.choice(list(spanish_conjunc.keys()))
+print('{}: {}'.format(espanola, spanish_conjunc[espanola]))

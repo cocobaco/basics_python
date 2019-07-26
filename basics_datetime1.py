@@ -17,12 +17,23 @@ print(now.year)
 print(now.strftime("%A"))
 print(now.strftime("%B"))
 
-# time difference
-day1 = datetime.datetime(2011, 6, 16)
-print(day1)
 
-print('time from', day1, 'to now:')
-diff = now - day1
+# parsing
+dt_string = '12 apr 2013'
+print(dt_string)
+day0 = datetime.datetime.strptime(dt_string, '%d %b %Y')
+print(day0)
+
+day_uno = datetime.datetime(year=2011, month=6, day=16)
+
+# formatting
+print(day0.strftime('%Y/%m/%d'))
+print(day_uno)
+
+
+# time difference
+print('time from', day_uno, 'to now:')
+diff = now - day_uno
 print(diff)
 print(diff.days)
-print('years =', diff.days / 365.)
+print('years = {:.2f}'.format(diff.days / 365.))

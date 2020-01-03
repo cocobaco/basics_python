@@ -18,10 +18,13 @@ spanish_conjunc = {'que': 'that, who, which, than',
                 'cuando': 'when',
                 'ni': 'nor, neither',
                 'donde': 'where',
-                'y': 'and',
+                'e': 'and',
                 'aunque': 'although, even though',
                 'sino': 'but, except',
                 'mientras': 'while',
+                'pero': 'but', 
+                'ya que': 'since', 
+                'siempre que': 'as long as', 
                 }
 
 

@@ -5,36 +5,27 @@ Created on Tue Jul 24 13:32:33 2018
 @author: roppon
 """
 import math
-import matplotlib.pyplot as plt
-import numpy as np
 
 
 print('*'*40)
-num1 = 2.5635
+print('integer operations')
+print('add: 1 + 2 =', 1 + 2)
+print('multiply: 3 * 4 =', 3 * 4)
+print('power: 5 ** 3 =', 5 ** 3)
+print('division: 5 / 3 =', 5 / 3)
+print('full division: 5 // 3 =', 5 // 3)
+print('modulus: 5 % 3 =', 5 % 3)
+
+
+print('*'*40)
+print('float operations')
+num1 = 12.5635
 # Absolute value.
 print(num1)
 print('floor: ', math.floor(num1))
 print('ceil: ', math.ceil(num1))
 print('round: ', round(num1, 2))
-
-x = np.arange(1, 10, 0.01)
-y1 = [math.cos(n) for n in x]
-y2 = np.log(x)
-
-# stateful way
-plt.figure()
-plt.plot(x, y1, 'o', label='cos')
-plt.plot(x, y2, 'x', label='log')
-plt.title('This is a plot (plt)')
-plt.legend()
+print('division x / 3:', num1 / 3)
+print('power x**3:', num1 ** 3)
 
 
-# object oriented way
-f = plt.figure()
-ax = plt.subplot(111)
-ax.plot(x, y1, 'o', label='cos')
-ax.plot(x, y2, 'x', label='log')
-ax.set_title('This is a plot (ax)')
-ax.legend()
-
-plt.show()

@@ -9,22 +9,30 @@ Created on Tue Aug 25 10:00:14 2020
 
 
 numbers = [2, 50, 4, 18, 6, 4, 3, 12, 18]
+print('original list:', numbers)
 
-print('enumerate list:')
-for index,item in enumerate(numbers):
-    print (index, item)
+print('remove: remove in-place the first element matching value')
+numbers.remove(4)
+print('remove 4:', numbers)
+
+print('insert: insert in-place at specified location')
+numbers.insert(1, 100)
+print('insert at index 1 the value 100:', numbers)
+
+print('del: remove element by index')
+del numbers[2]
+print('del the 3rd element:', numbers)
 
 
 print('*' * 50)
 
 first = [11.25, 18.0, 20.0]
 second = [10.75, 9.50]
-# Paste together first and second: full
+
+# add two lists
 full = first + second
 print(full)
 
-full.insert(1, 777)
-print('{} ({})'.format(full, type(full)))
 
 print('normal list call from range: ')
 print(list(range(3, 6)))
